@@ -3,6 +3,7 @@ import List from "./components/List";
 import listSvg from "./assets/img/list.svg";
 import AddList from "./components/AddList";
 
+import DB from "./assets/db.json";
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
           ]}
           isRemovable
         />
-        <AddList/>
+        <AddList colors={DB.colors} />
       </div>
       <div className="planning__tasks"></div>
     </div>

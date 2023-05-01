@@ -21,14 +21,44 @@ body {
   transform: translate(-50%, -50%);
   box-shadow: 1px 2px 20px #f3f3f3;
   border-radius: 10px;
-  border: 1px solid #f1f1f1;
+  border: 7px solid black;
   font-size: 14px;
 
   &__sidebar {
     background-color: #f4f6f8;
     width: 200px;
     height: 408px;
-    border-right: 1px solid #f1f1f1;
+    border-right: 7px solid black;
     padding: 60px 20px;
+  }
+}
+
+.button {
+  background: #4dd599;
+  border-radius: 4px;
+  color: #fff;
+  border: 0px;
+  padding: 10px 20px;
+  cursor: pointer;
+
+  &:hover {
+    background: #3eb883;
+  }
+
+  &:active {
+    background: #358e67;
+  }
+}
+
+.field {
+  background: #ffffff;
+  border: 1px solid #efefef;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 8px 12px;
+  width: 100%;
+
+  &:focus {
+    border-color: #dbdbdb;
   }
 }
