@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import List from "./components/List";
 import listSvg from "./assets/img/list.svg";
 import AddList from "./components/AddList";
+import Tasks from './components/Tasks'
 
 import DB from "./assets/db.json";
 
@@ -14,6 +15,12 @@ function App() {
       return item;
     })
   );
+
+  const onAddList = (obj) => {
+    const newList = [...lists, obj];
+    setLists(newList);
+  };
+
   return (
     <div className="planning">
       <div className="planning__sidebar">
@@ -25,10 +32,18 @@ function App() {
             },
           ]}
         />
-        <List items={lists} isRemovable />
-        <AddList colors={DB.colors} />
+        <List
+          items={lists}
+          onRemove={() => {
+            alert(1);
+          }}
+          isRemovable
+        />
+        <AddList onAdd={onAddList} colors={DB.colors} />
       </div>
-      <div className="planning__tasks"></div>
+      <div className="planning__tasks">
+        <Tasks/>
+      </div>
     </div>
   );
 }

@@ -12,6 +12,7 @@ body {
 }
 
 .planning {
+  display: flex;
   position: absolute;
   width: 200px;
   left: 50%;
@@ -27,11 +28,18 @@ body {
   &__sidebar {
     background-color: #f4f6f8;
     width: 200px;
-    height: 408px;
+    height: 410px;
     border-right: 7px solid black;
     padding: 60px 20px;
   }
+
+  &__tasks{
+    flex: 1;
+    padding: 60px;
+  }
 }
+
+
 
 .button {
   background: #4dd599;
