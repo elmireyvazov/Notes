@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import List from "./components/List";
 import listSvg from "./assets/img/list.svg";
 import AddList from "./components/AddList";
-import Tasks from './components/Tasks'
+import Task from "./components/Task";
 
 import DB from "./assets/db.json";
 
@@ -42,7 +42,7 @@ function App() {
         <AddList onAdd={onAddList} colors={DB.colors} />
       </div>
       <div className="planning__tasks">
-        <Tasks/>
+        <Task/>
       </div>
     </div>
   );
