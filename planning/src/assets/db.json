@@ -11,11 +11,6 @@
       "colorId": 4
     },
     {
-      "id": 3,
-      "name": "Фильмы и сериалы",
-      "colorId": 3
-    },
-    {
       "id": 4,
       "name": "Книги",
       "colorId": 2
@@ -26,7 +21,7 @@
       "colorId": 1
     },
     {
-      "name": "Спорт",
+      "name": "Спорт ",
       "colorId": 3,
       "id": 6
     }
@@ -35,25 +30,25 @@
     {
       "id": 1,
       "listId": 2,
-      "text": "Изучить JavaScript",
+      "text": "Изучить HTML",
       "completed": false
     },
     {
       "id": 2,
       "listId": 2,
-      "text": "Изучить паттерны проектирования",
+      "text": "Изучить CSS",
       "completed": false
     },
     {
       "id": 3,
       "listId": 2,
-      "text": "ReactJS Hooks (useState, useReducer, useEffect и т.д.)",
+      "text": "Изучить JavaScript",
       "completed": true
     },
     {
       "id": 4,
       "listId": 2,
-      "text": "Redux (redux-observable, redux-saga)",
+      "text": "Изучить React",
       "completed": false
     }
   ],

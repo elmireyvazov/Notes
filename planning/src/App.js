@@ -7,6 +7,7 @@ import { List, AddList, Task } from "./components";
 function App() {
   const [lists, setLists] = useState(null);
   const [colors, setColors] = useState(null);
+  const [activeItem, setActiveItem] = useState(null);
 
   useEffect(() => {
     axios
@@ -19,8 +20,18 @@ function App() {
     });
   }, []);
 
-  const onAddList = (obj) => {
+  const onAddList = obj => {
     const newList = [...lists, obj];
+    setLists(newList);
+  };
+
+  const onEditListTitle = (id, title) => {
+    const newList = lists.map(item => {
+      if (item.id === id) {
+        item.name = title;
+      }
+      return item;
+    });
     setLists(newList);
   };
 
@@ -42,6 +53,10 @@ function App() {
               const newLists = lists.filter((item) => item.id !== id);
               setLists(newLists);
             }}
+            onClickItem={(item) => {
+              setActiveItem(item);
+            }}
+            activeItem={activeItem}
             isRemovable
           />
         ) : (
@@ -49,7 +64,11 @@ function App() {
         )}
         <AddList onAdd={onAddList} colors={colors} />
       </div>
-      <div className="planning__tasks">{lists && <Task list={lists[1]} />}</div>
+      <div className="planning__tasks">
+        {lists && activeItem && (
+          <Task list={activeItem} onEditTitle={onEditListTitle} />
+        )}
+      </div>
     </div>
   );
 }
