@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  outline: none;
+  font-family: 'Roboto', -apple-system, system-ui, sans-serif;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.appbar {
+  background: #456990;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  color: #fff;
+}
+
+.all-tasks-icon {
+  fill: white;
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.planning {
+  display: flex;
+  font-size: 14px;
+  height: calc(100vh - 60px);
+
+  &__sidebar {
+    background-color: #114b5f;
+    color: #fff;
+    // border-right: 7px solid black;
+    padding: 60px 20px;
+    overflow-y: auto;
+    box-shadow: 0px 4px 5px -5px rgba(255, 255, 255, 0.9) inset;
+  }
+
+  &__tasks {
+    flex: 1;
+    padding: 60px;
+    overflow-y: auto;
+    background: #fff;
+  }
+}
+
+.button {
+  background: #4dd599;
+  border-radius: 4px;
+  color: #fff;
+  border: 0px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+
+  &:hover {
+    background: #3eb883;
+  }
+
+  &:active {
+    background: #358e67;
+  }
+
+  &--grey {
+    background: #f4f6f8;
+    color: #444444;
+
+    &:hover {
+      background: rgb(240, 238, 238);
+    }
+
+    &:active {
+      background: rgb(224, 224, 224);
+    }
+  }
+}
+
+.field {
+  background: #ffffff;
+  border: 1px solid #efefef;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 8px 12px;
+  width: 100%;
+  font-size: 14px;
+
+  &:focus {
+    border-color: #dbdbdb;
+  }
+}
