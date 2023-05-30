@@ -19,11 +19,19 @@ const AddTaskForm = ({ list, onAddTask }) => {
       text: inputValue,
       completed: false,
     };
-    axios.post("http://localhost:3001/tasks/", obj).then(({ data }) => {
-      console.log(data);
-      onAddTask(list.id, obj);
-      toggleFormVisible();
-    });
+    setIsLoading(true);
+    axios
+      .post("http://localhost:3001/tasks/", obj)
+      .then(({ data }) => {
+        onAddTask(list.id, data);
+        toggleFormVisible();
+      })
+      .catch(() => {
+        alert("Ошибка при добавлении задачи!");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -42,8 +50,8 @@ const AddTaskForm = ({ list, onAddTask }) => {
             placeholder="Текст задачи"
             onChange={(e) => setInputValue(e.target.value)}
           />
-          <button onClick={addTask} className="button">
-            Добавить задачу{" "}
+          <button disabled={isLoading} onClick={addTask} className="button">
+            {isLoading ? "Добваление" : "Добавить задачу"}
           </button>
           <button onClick={toggleFormVisible} className="button button--grey">
             Отмена

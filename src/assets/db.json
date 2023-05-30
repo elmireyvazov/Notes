@@ -1,133 +1,34 @@
 {
   "lists": [
     {
-      "id": 1,
-      "name": "Покупки",
-      "colorId": 5
+      "name": "1",
+      "colorId": 6,
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Фронтенд",
-      "colorId": 4
-    },
-    {
-      "id": 4,
-      "name": "vnnn",
-      "colorId": 2
-    },
-    {
-      "id": 5,
-      "name": "Личное",
-      "colorId": 1
-    },
-    {
-      "name": "asdfa",
-      "colorId": 7,
-      "id": 6
+      "name": "223323",
+      "colorId": 1,
+      "id": 2
     }
   ],
   "tasks": [
     {
-      "id": 1,
-      "listId": 2,
-      "text": "Изучить HTML",
-      "completed": false
+      "listId": 1,
+      "text": "природа",
+      "completed": true,
+      "id": 1
     },
     {
-      "id": 2,
-      "listId": 2,
-      "text": "Изучить CSS",
-      "completed": false
-    },
-    {
-      "id": 3,
-      "listId": 2,
-      "text": "Изучить JavaScript",
-      "completed": true
-    },
-    {
-      "id": 4,
-      "listId": 2,
-      "text": "Изучить React",
-      "completed": false
-    },
-    {
-      "listId": 4,
-      "text": "sadfasdf",
+      "listId": 1,
+      "text": "дом",
       "completed": false,
-      "id": 5
-    },
-    {
-      "listId": 4,
-      "text": "asdfasdf",
-      "completed": false,
-      "id": 6
+      "id": 2
     },
     {
       "listId": 2,
-      "text": "asdfasdf",
+      "text": "е",
       "completed": false,
-      "id": 7
-    },
-    {
-      "listId": 2,
-      "text": "asdf",
-      "completed": false,
-      "id": 8
-    },
-    {
-      "listId": 2,
-      "text": "asdfad",
-      "completed": false,
-      "id": 9
-    },
-    {
-      "listId": 2,
-      "text": "asdfasdf",
-      "completed": false,
-      "id": 10
-    },
-    {
-      "listId": 2,
-      "text": "asdfasdf",
-      "completed": false,
-      "id": 11
-    },
-    {
-      "listId": 2,
-      "text": "asdfasdf",
-      "completed": false,
-      "id": 12
-    },
-    {
-      "listId": 2,
-      "text": "asdfasdf",
-      "completed": false,
-      "id": 13
-    },
-    {
-      "listId": 2,
-      "text": "asdfasdf",
-      "completed": false,
-      "id": 14
-    },
-    {
-      "listId": 2,
-      "text": "asdfasdf",
-      "completed": false,
-      "id": 15
-    },
-    {
-      "listId": 2,
-      "text": "asdfasdfadfs",
-      "completed": false,
-      "id": 16
-    },
-    {
-      "listId": 2,
-      "text": "asdfasdf",
-      "completed": false,
-      "id": 17
+      "id": 3
     }
   ],
   "colors": [
