@@ -9,12 +9,14 @@ import Task from "./Task";
 
 const Tasks = ({
   list,
+  lists,
   onEditTitle,
   onAddTask,
   onRemoveTask,
   onEditTask,
   onCompleteTask,
   withoutEmpty,
+  isAllTasksMode,
 }) => {
   const editTitle = () => {
     const newTitle = window.prompt("Название списка", list.name);
@@ -30,6 +32,21 @@ const Tasks = ({
     }
   };
 
+  const renderList = (list) => {
+    return list.tasks.map((task) => (
+      <Task
+        key={task.id}
+        list={list}
+        onEdit={onEditTask}
+        onRemove={onRemoveTask}
+        onComplete={onCompleteTask}
+        {...task}
+      />
+    ));
+  };
+
+  console.log(isAllTasksMode);
+
   return (
     <div className="tasks">
       <h2 style={{ color: list.color.hex }} className="tasks__title">
@@ -41,18 +58,22 @@ const Tasks = ({
         {!withoutEmpty && list.tasks && !list.tasks.length && (
           <h2>Задачи отсутствуют</h2>
         )}
-        {list.tasks &&
-          list.tasks.map((task) => (
-            <Task
-              key={task.id}
-              list={list}
-              onEdit={onEditTask}
-              onRemove={onRemoveTask}
-              onComplete={onCompleteTask}
-              {...task}
-            />
-          ))}
-        <AddTaskForm key={list.id} list={list} onAddTask={onAddTask} />
+        {isAllTasksMode
+          ? lists.map((innerList) => (
+              <>
+                <h3
+                  style={{ color: innerList.color.hex }}
+                  className="tasks__inner-title"
+                >
+                  {innerList.name}
+                </h3>
+                {renderList(innerList)}
+              </>
+            ))
+          : renderList(list)}
+        {!isAllTasksMode && (
+          <AddTaskForm key={list.id} list={list} onAddTask={onAddTask} />
+        )}
       </div>
     </div>
   );

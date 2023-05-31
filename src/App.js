@@ -9,6 +9,8 @@ function App() {
   const [colors, setColors] = useState(null);
   const [activeItem, setActiveItem] = useState(null);
 
+  const [isAllTasksMode, setAllTasksMode] = useState(false);
+
   useEffect(() => {
     axios
       .get("http://localhost:3001/lists?_expand=color&_embed=tasks")
@@ -42,7 +44,7 @@ function App() {
       return;
     }
 
-    const newList = lists.map(list => {
+    const newList = lists.map((list) => {
       if (list.id === listId) {
         list.tasks = list.tasks.map((task) => {
           if (task.id === taskObj.id) {
@@ -67,7 +69,7 @@ function App() {
     if (window.confirm("Вы действительно хотите удалить задачу?")) {
       const newList = lists.map((item) => {
         if (item.id === listId) {
-          item.tasks = item.tasks.filter(task => task.id !== taskId);
+          item.tasks = item.tasks.filter((task) => task.id !== taskId);
         }
         return item;
       });
@@ -79,9 +81,9 @@ function App() {
   };
 
   const onCompleteTask = (listId, taskId, completed) => {
-    const newList = lists.map(list => {
+    const newList = lists.map((list) => {
       if (list.id === listId) {
-        list.tasks = list.tasks.map(task => {
+        list.tasks = list.tasks.map((task) => {
           if (task.id === taskId) {
             task.completed = completed;
           }
@@ -101,7 +103,7 @@ function App() {
   };
 
   const onEditListTitle = (id, title) => {
-    const newList = lists.map(item => {
+    const newList = lists.map((item) => {
       if (item.id === id) {
         item.name = title;
       }
@@ -114,7 +116,7 @@ function App() {
     <>
       <div className="appbar">
         <div className="logo">
-          <h3>NOTES</h3>
+          <h3>Мои задачи</h3>
         </div>
       </div>
       <div className="container">
@@ -123,7 +125,7 @@ function App() {
             <List
               items={[
                 {
-                  active: !activeItem,
+                  active: isAllTasksMode,
                   icon: (
                     <img
                       src={listSvg}
@@ -134,15 +136,25 @@ function App() {
                   name: "Все задачи",
                 },
               ]}
+              onClickItem={() => {
+                setAllTasksMode(true);
+                setActiveItem({
+                  id: "all",
+                  color: { hex: "#000" },
+                  name: "Все задачи",
+                });
+              }}
             />
             {lists ? (
               <List
+                isAllTasksMode={isAllTasksMode}
                 items={lists}
                 onRemove={(id) => {
                   const newLists = lists.filter((item) => item.id !== id);
                   setLists(newLists);
                 }}
                 onClickItem={(item) => {
+                  setAllTasksMode(false);
                   setActiveItem(item);
                 }}
                 activeItem={activeItem}
@@ -156,7 +168,9 @@ function App() {
           <div className="planning__tasks">
             {lists && activeItem && (
               <Task
+                lists={lists}
                 list={activeItem}
+                isAllTasksMode={isAllTasksMode}
                 onAddTask={onAddTask}
                 onEditTitle={onEditListTitle}
                 onRemoveTask={onRemoveTask}

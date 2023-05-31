@@ -32,9 +32,9 @@ const Task = ({ id, text, completed, list, onRemove, onEdit, onComplete }) => {
           </svg>
         </label>
       </div>
-      <p>{text}</p>
+      <p className="tasks__items-text">{text}</p>
       <div className="tasks__items-row-actions">
-        <div onClick={() => onEdit(list.id, { id, text })}>
+        <div className="tasks__items-edit" onClick={() => onEdit(list.id, { id, text })}>
           <svg
             width="15"
             height="15"
