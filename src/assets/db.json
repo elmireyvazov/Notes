@@ -3,22 +3,51 @@
     {
       "name": "1",
       "colorId": 6,
-      "id": 1
+      "id": 1,
+      "userId": 1
     },
     {
       "name": "223323",
       "colorId": 1,
-      "id": 2
+      "id": 2,
+      "userId": 1
     },
     {
       "name": "asdfasdfasd",
       "colorId": 5,
-      "id": 3
+      "id": 3,
+      "userId": 2
+    },
+    {
+      "name": "Список человека 2",
+      "colorId": 1,
+      "id": 4
+    },
+    {
+      "name": "list 2",
+      "colorId": 1,
+      "id": 5
+    },
+    {
+      "name": "sdf",
+      "colorId": 1,
+      "id": 6
+    },
+    {
+      "name": "user 2 list",
+      "colorId": 1,
+      "id": 7
+    },
+    {
+      "name": "user 1 list",
+      "colorId": 1,
+      "id": 8
     }
   ],
   "tasks": [
     {
       "listId": 1,
+      "userId": 1,
       "text": "дом",
       "completed": false,
       "id": 2
@@ -31,45 +60,76 @@
     },
     {
       "listId": 1,
+      "userId": 1,
       "text": "asdfasdfasdfasdf",
       "completed": true,
       "id": 4
     },
     {
       "listId": 1,
+      "userId": 1,
       "text": "qasdfghjkl",
       "completed": true,
       "id": 5
     },
     {
       "listId": 3,
+      "userId": 2,
       "text": "asdfasd",
       "completed": false,
       "id": 6
     },
     {
       "listId": 3,
+      "userId": 2,
       "text": "fsdafasdf",
       "completed": true,
       "id": 7
     },
     {
       "listId": 3,
+      "userId": 2,
       "text": "asdfasdf",
       "completed": false,
       "id": 8
     },
     {
       "listId": 3,
+      "userId": 2,
       "text": "asdfasdf",
       "completed": false,
       "id": 9
     },
     {
       "listId": 3,
+      "userId": 2,
       "text": "asdfasdfasdf",
       "completed": false,
       "id": 10
+    },
+    {
+      "listId": 7,
+      "text": "asdfasdf",
+      "completed": false,
+      "id": 11
+    },
+    {
+      "listId": 7,
+      "text": "sdfdccc",
+      "completed": false,
+      "id": 12
+    },
+    {
+      "listId": 8,
+      "text": "asdfsd",
+      "completed": false,
+      "id": 13
+    },
+    {
+      "listId": 8,
+      "text": "privet",
+      "completed": false,
+      "id": 14
     }
   ],
   "colors": [
@@ -112,6 +172,18 @@
       "id": 8,
       "hex": "#FF6464",
       "name": "red"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "User 1",
+      "password": "123456"
+    },
+    {
+      "id": 2,
+      "name": "User 2",
+      "password": "654321"
     }
   ]
 }
