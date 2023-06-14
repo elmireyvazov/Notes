@@ -2,11 +2,13 @@ import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../AuthProvider'
 import axios from 'axios'
 
-import './AuthPage.scss'
+// Стили - копия AuthPage.scss
+// import './RegisterPage.scss'
 
-const AuthPage = ({ setRegister }) => {
+const RegisterPage = ({ setRegister }) => {
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
+  const [passwordRepeat, setPasswordRepeat] = useState('')
   const [users, setUsers] = useState([])
 
   const { updateUserId } = useContext(AuthContext)
@@ -20,18 +22,31 @@ const AuthPage = ({ setRegister }) => {
   const handleSubmit = e => {
     e.preventDefault()
 
-    const foundUser = users.find(user => user.name === name && user.password === password)
+    const foundUser = users.find(user => user.name === name)
 
     if (foundUser) {
-      updateUserId(foundUser.id)
-      setRegister(false)
+      return
     }
+
+    if (password !== passwordRepeat) {
+      return
+    }
+
+    axios
+      .post('http://localhost:3001/users', {
+        id: Math.round(Math.random() * 10000),
+        name,
+        password,
+      })
+      .then(() => {
+        setRegister(false)
+      })
   }
 
   return (
     <div className='auth-overlay'>
       <div className='auth-content'>
-        <h3>Вход в приложение</h3>
+        <h3>Регистрация</h3>
         <form>
           <input
             type='text'
@@ -45,11 +60,17 @@ const AuthPage = ({ setRegister }) => {
             value={password}
             onChange={e => setPassword(e.target.value)}
           />
+          <input
+            type='password'
+            placeholder='Повторите пароль'
+            value={passwordRepeat}
+            onChange={e => setPasswordRepeat(e.target.value)}
+          />
           <button type='submit' onClick={handleSubmit}>
-            Войти
+            Создать аккаунт
           </button>
           <p className='to-other-page'>
-            Нет аккаунта? <span onClick={() => setRegister(true)}>Регистрация</span>
+            Уже есть аккаунт? <span onClick={() => setRegister(false)}>Войти</span>
           </p>
         </form>
       </div>
@@ -57,4 +78,4 @@ const AuthPage = ({ setRegister }) => {
   )
 }
 
-export default AuthPage
+export default RegisterPage

@@ -7,12 +7,15 @@ import { List, AddList, Task } from './components'
 import AuthPage from './components/AuthPage'
 
 import { AuthContext, AuthProvider } from './components/AuthProvider'
+import RegisterPage from './components/RegisterPage'
 
 function App() {
   const [lists, setLists] = useState(null)
   const [colors, setColors] = useState(null)
   const [activeItem, setActiveItem] = useState(null)
   const [isAllTasksMode, setAllTasksMode] = useState(false)
+
+  const [showRegister, setRegister] = useState(false)
 
   useEffect(() => {
     axios.get('http://localhost:3001/lists?_expand=color&_embed=tasks').then(({ data }) => {
@@ -26,8 +29,6 @@ function App() {
   const onAddList = (obj, userId) => {
     const newList = [...lists, { ...obj, userId }]
     setLists(newList)
-
-    console.log(newList)
   }
 
   const onAddTask = (listId, taskObj) => {
@@ -194,8 +195,10 @@ function App() {
                 </div>
               </div>
             </>
+          ) : showRegister ? (
+            <RegisterPage setRegister={value => setRegister(value)} />
           ) : (
-            <AuthPage />
+            <AuthPage setRegister={value => setRegister(value)} />
           )
         }}
       </AuthContext.Consumer>
